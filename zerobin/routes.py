@@ -59,12 +59,6 @@ def index():
 def faq():
     return GLOBAL_CONTEXT
 
-@app.route("/buy_bitcoin")
-@view("buy_bitcoin")
-def index():
-    return GLOBAL_CONTEXT
-
-
 @app.get(settings.ADMIN_URL)
 @app.post(settings.ADMIN_URL)
 @view("admin")
@@ -131,14 +125,12 @@ def create_paste():
 
     expiration = request.forms.get("expiration", "burn_after_reading")
     title = request.forms.get("title", "")
-    btc_tip_address = request.forms.get("btcTipAddress", "")
 
     paste = Paste(
         expiration=expiration,
         content=content,
         uuid_length=settings.PASTE_ID_LENGTH,
         title=title,
-        btc_tip_address=btc_tip_address,
     )
     paste.save()
 

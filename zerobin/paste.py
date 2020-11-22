@@ -34,13 +34,11 @@ class Paste(object):
         content=None,
         expiration=None,
         title="",
-        btc_tip_address="",
     ):
 
         self.content = content
         self.expiration = self.get_expiration(expiration)
         self.title = bleach.clean(title, strip=True)[:60]
-        self.btc_tip_address = bleach.clean(btc_tip_address, strip=True)[:50]
 
         if not uuid:
             # generate the uuid from the decoded content by hashing it
@@ -125,7 +123,6 @@ class Paste(object):
             expiration=expiration,
             content=content,
             title=" ".join(metadata.get("title", "").split()),
-            btc_tip_address=" ".join(metadata.get("btc_tip_address", "").split()),
         )
 
     @classmethod
@@ -199,8 +196,6 @@ class Paste(object):
             metadata = {}
             if self.title:
                 metadata["title"] = self.title
-            if self.btc_tip_address:
-                metadata["btc_tip_address"] = self.btc_tip_address
             f.write(json.dumps(metadata) + "\n")
 
         return self

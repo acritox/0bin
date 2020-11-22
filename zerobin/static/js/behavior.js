@@ -27,21 +27,18 @@ var app = new Vue({
     openPreviousPastesMenu: false,
     readerMode: false,
     isUploading: false,
-    btcCopied: false,
     currentPaste: {
       ownerKey: '',
       id: '',
       type: '',
       content: '',
       downloadLink: {},
-      title: '',
-      btcTipAddress: ''
+      title: ''
     },
     newPaste: {
       expiration: '1_day',
       content: '',
-      title: '',
-      btcTipAddress: ''
+      title: ''
     },
     messages: [],
     /** Check for browser support of the named featured. Store the result
@@ -128,7 +125,6 @@ var app = new Vue({
       content.value = zerobin.getPasteContent();
       content.dispatchEvent(new Event('change'));
       this.newPaste.title = this.currentPaste.title;
-      this.newPaste.btcTipAddress = this.currentPaste.btcTipAddress;
     },
 
     handleCancelClone: function () {
@@ -202,26 +198,6 @@ var app = new Vue({
         zerobin.message('primary', 'The paste is now in your clipboard', '', true);
       }, function (err) {
         zerobin.message('danger', 'The paste could not be copied', '', true);
-      });
-
-    },
-
-    copyBTCAdressToClipboard: function () {
-
-      var promise = navigator.clipboard.writeText(this.currentPaste.btcTipAddress);
-
-      app.btcCopied = true;
-
-      promise.then(function () {
-
-        if (app.btcCopied) {
-          clearTimeout(app.btcCopied);
-        }
-        app.btcCopied = setTimeout(function () {
-          app.btcCopied = false;
-        }, 3000)
-      }, function (err) {
-        zerobin.message('danger', 'The BTC addresse could not be copied', '', true);
       });
 
     },
@@ -324,8 +300,7 @@ var app = new Vue({
                   var data = {
                     content: content,
                     expiration: app.newPaste.expiration,
-                    title: app.newPaste.title,
-                    btcTipAddress: app.newPaste.btcTipAddress
+                    title: app.newPaste.title
                   };
                   var sizebytes = zerobin.count(JSON.stringify(data));
                   var oversized = sizebytes > zerobin.max_size; // 100kb - the others header information
@@ -991,11 +966,6 @@ window.onload = function () {
   var title = document.querySelector('h1');
   if (title) {
     app.currentPaste.title = title.innerText;
-  }
-
-  var btcTipAddress = document.querySelector('.btc-tip-address');
-  if (btcTipAddress) {
-    app.currentPaste.btcTipAddress = btcTipAddress.innerText;
   }
 
 }

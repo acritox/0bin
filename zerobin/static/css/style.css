@@ -291,10 +291,6 @@ margin-left: 8px;
   display: none;
 }
 
-.tip svg{
-margin-left: 6px;
-}
-
 a#clip-button.hover {
   cursor: pointer;
   text-decoration: underline;
@@ -345,17 +341,6 @@ pre {
     margin: auto;
 }
 
-#buy_bitcoin {
-    max-width: 80%;
-    margin: auto;
-}
-
-#buy_bitcoin img{
-    width: 85%;
-    display: block;
-    margin: 20px auto;
-}
-
 .caret {
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
@@ -387,16 +372,6 @@ pre {
 .download-link {
   border-top-left-radius: 3px !important;
   border-bottom-left-radius: 3px !important;
-}
-
-.download-link a,
-.buy-btc a {
-  color: #eee;
-}
-
-.download-link a:hover,
-.buy-btc a:hover {
-  text-decoration: none;
 }
 
 .select-date {
