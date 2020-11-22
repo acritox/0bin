@@ -9,12 +9,9 @@ PORT = "3255"
 # Names/links to insert in the footer.
 #
 MENU = (
-    ("Github", "https://github.com/Tygs/0bin"),
-    ("Faq", "/faq/"),  # You probably want to keep this
-    # Any link with "mailto:" will be escaped to limit spam, but displayed
-    # correctly to the user using JS.
-    ("Contact", "mailto:your@email.com"),
-    ("Zerobin Pastebin", "https://www.0bin.net/"),  # Thanks the authors :)
+    ("GitHub", "https://github.com/acritox/0bin"),
+    ("FAQ", "/faq/"),
+    ("Contact", "mailto:mail@aloibl.de"),
 )
 
 # Size limit of the paste content in bytes. Be careful, allowing a size too big can
@@ -22,7 +19,7 @@ MENU = (
 MAX_SIZE = 1024 * 1000
 
 # Display a tiny counter for pastes created.
-DISPLAY_COUNTER = True
+DISPLAY_COUNTER = False
 # Refresh counter interval.
 REFRESH_COUNTER = 60  # in seconds
 

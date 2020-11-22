@@ -3,12 +3,12 @@
 
 <head>
   <meta charset="utf-8">
-  <title>1a4 - encrypted pastebin</title>
-  <meta property="og:site_name" content="1a4">
-  <meta property="og:title" content="1a4 - encrypted pastebin" />
+  <title>paste.aloibl.de - encrypted pastebin</title>
+  <meta property="og:site_name" content="paste.aloibl.de">
+  <meta property="og:title" content="encrypted pastebin" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-  <meta name="description" content="1a4 is a client-side-encrypted alternative pastebin. You can store code/text/images online for a set period of time and share with the world. Featuring burn after reading, history, clipboard.">
-  <meta property="og:description" content="1a4 is a client-side-encrypted alternative pastebin. You can store code/text/images online for a set period of time and share with the world. Featuring burn after reading, history, clipboard." />
+  <meta name="description" content="a client-side-encrypted alternative pastebin. You can store code/text/images online for a set period of time and share with the world. Featuring burn after reading, history, clipboard.">
+  <meta property="og:description" content="a client-side-encrypted alternative pastebin. You can store code/text/images online for a set period of time and share with the world. Featuring burn after reading, history, clipboard." />
   <meta property="og:type" content="website" />
 
   <meta property="og:image" itemprop="image" content="/static/img/apple-touch-icon.png">
@@ -32,9 +32,8 @@
   <div id="app" :class="{ 'reader-mode-bg': readerMode}">
 
     <div :class="{'topnav': true, 'reader-mode': readerMode}" @mouseleave="openPreviousPastesMenu =false">
-      <a class="brand" href="/"><span>1a4</span><em>.fr</em></a>
-      <span class="tagline">"A client side encrypted PasteBin based on <a href="https://0bin.net" target="_blank">0bin</a>"<br><span>All pastes are AES256 encrypted, we cannot know
-          what you paste...</span>
+      <a class="brand" href="/"><span>paste.aloibl.de</span></a>
+      <span class="tagline">"A client side encrypted PasteBin based on <a href="https://0bin.net" target="_blank">0bin</a>"<br><span>All pastes are AES256 encrypted, I won't know what you paste...</span>
       </span>
 
       <nav>
