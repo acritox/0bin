@@ -84,7 +84,7 @@ def ensure_app_context(data_dir=None, config_dir=None):
         This function is idempotent if nothing touch the files it created.
     """
 
-    app_dirs = AppDirs("0bin", "tygs")
+    app_dirs = AppDirs("0bin", "acritox")
 
     settings.DATA_DIR = Path(data_dir or app_dirs.user_data_dir).expanduser()
     settings.DATA_DIR.mkdir(exist_ok=True, parents=True)
