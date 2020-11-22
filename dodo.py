@@ -76,17 +76,9 @@ def task_build():
     }
 
 
-def task_publish_to_pypi():
-
-    return {
-        "task_dep": ["build"],
-        "actions": ["twine upload ./dist/*.whl"],
-    }
-
-
 def task_build_pyz():
     return {
-        "actions": ["shiv zerobin -o dist/zerobin.pyz -c zerobin"],
+        "actions": [f"shiv {DIST_DIR}/zerobin-{ZEROBIN_VERSION}-py3-none-any.whl -o dist/zerobin.pyz -c zerobin"],
     }
 
 
@@ -140,7 +132,3 @@ def task_bump_version():
     return {
         "actions": [PythonInteractiveAction(bump),],
     }
-
-
-def task_release_to_pypi():
-    return {"task_dep": ["bump_version", "publish_to_pypi"], "actions": []}
